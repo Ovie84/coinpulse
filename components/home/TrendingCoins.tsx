@@ -5,13 +5,21 @@ import Link from "next/link";
 import Image from "next/image";
 import React from "react";
 import DataTable from "@/components/DataTable";
+import { TrendingCoinsFallback } from "./HomeFallbacks";
 
 const TrendingCoins = async () => {
-  const trendingCoins = await fetcher<{ coins: TrendingCoin[] }>(
-    "/search/trending",
-    undefined,
-    300,
-  );
+  let trendingCoins;
+
+  try {
+    trendingCoins = await fetcher<{ coins: TrendingCoin[] }>(
+      "/search/trending",
+      undefined,
+      300,
+    );
+  } catch (error) {
+    console.error("Error fetching trending coins: ", error);
+    return <TrendingCoinsFallback />;
+  }
 
   const columns: DataTableColumn<TrendingCoin>[] = [
     {
@@ -21,7 +29,7 @@ const TrendingCoins = async () => {
         const item = coin.item;
 
         return (
-          <Link href={"/coins/${item.id}"}>
+          <Link href={`/coins/${item.id}`}>
             <Image src={item.large} alt={item.name} width={36} height={36} />
             <p>{item.name}</p>
           </Link>
@@ -60,7 +68,6 @@ const TrendingCoins = async () => {
       cell: (coin) => coin.item.data.price,
     },
   ];
-
   return (
     <div id="trending-coins">
       <h4>Trending Coins</h4>
