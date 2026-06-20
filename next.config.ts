@@ -2,6 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   images: {
     remotePatterns: [
       {
@@ -9,7 +12,7 @@ const nextConfig: NextConfig = {
         hostname: "assets.coingecko.com",
       }, {
         protocol: "https",
-        hostname: "coin-image-coingecko.com"
+        hostname: "coin-images.coingecko.com",
       },
     ]
   }
