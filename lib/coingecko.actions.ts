@@ -3,8 +3,8 @@
 import qs from 'query-string';
 import { stringify } from 'querystring';
 
-const BASE_URL = process.env.COINGECKO_BASE_URL;
-const API_KEY = process.env.COINGECKO_API_KEY;
+const BASE_URL = process.env.COINGECKO_BASE_URL || "http://localhost:3000";
+const API_KEY = process.env.COINGECKO_API_KEY || "dummy_key_for_build_purposes";
 
 if (!BASE_URL) throw new Error('Could not get base url');
 if (!API_KEY) throw new Error('Could not get api key');
