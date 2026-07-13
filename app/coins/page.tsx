@@ -37,10 +37,12 @@ const Markets = async ({ searchParams }: NextPageProps) => {
       header: "Ranke",
       cellClassName: "rank-cell",
       cell: (coin) => {
-        <>
-          #[coin.market_cap_rank]
-          <Link href={`/coins/${coin.id}`} aria-label="View coin" />
-        </>;
+        return (
+          <>
+            #[coin.market_cap_rank]
+            <Link href={`/coins/${coin.id}`} aria-label="View coin" />
+          </>
+        );
       },
     },
     {
