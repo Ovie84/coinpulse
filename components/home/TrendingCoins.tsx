@@ -36,6 +36,33 @@ const TrendingCoins = async () => {
         );
       },
     },
+    // {
+    //   header: "24h Change",
+    //   cellClassName: "name-cell",
+    //   cell: (coin) => {
+    //     const item = coin.item;
+    //     const isTrendingUp = item.data.price_change_percentage_24h.usd > 0;
+
+    //     return (
+    //       <div
+    //         className={cn(
+    //           "price-change",
+    //           isTrendingUp ? "text-green-500" : "text-red-500",
+    //         )}
+    //       >
+    //         <p className="flex item-center">
+    //           {isTrendingUp ? (
+    //             <TrendingUp width={16} height={16} />
+    //           ) : (
+    //             <TrendingDown width={16} height={16} />
+    //           )}
+    //           {Math.abs(item.data.price_change_percentage_24h.usd).toFixed(3)}%
+    //           {/* {formatCurrency(item.data.price_change_percentage_24h.usd)} */}
+    //         </p>
+    //       </div>
+    //     );
+    //   },
+    // },
     {
       header: "24h Change",
       cellClassName: "name-cell",
@@ -50,18 +77,19 @@ const TrendingCoins = async () => {
               isTrendingUp ? "text-green-500" : "text-red-500",
             )}
           >
-            <p>
+            <p className="flex item-center">
+              {formatCurrency(item.data.price_change_percentage_24h.usd)};
               {isTrendingUp ? (
                 <TrendingUp width={16} height={16} />
               ) : (
                 <TrendingDown width={16} height={16} />
               )}
+              {/* {formatCurrency(item.data.price_change_percentage_24h.usd)} */}
             </p>
           </div>
         );
       },
     },
-
     {
       header: "Price",
       cellClassName: "price-cell",
