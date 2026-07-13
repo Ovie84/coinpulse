@@ -1,10 +1,14 @@
 import React, { Suspense } from "react";
 import CoinOverview from "@/components/home/CoinOverview";
 import TrendingCoins from "@/components/home/TrendingCoins";
+import Categories from "@/components/home/Categories";
 import {
   CoinOverviewFallback,
   TrendingCoinsFallback,
+  CategoriesFallback,
 } from "@/components/home/HomeFallbacks";
+// ...existing code...
+
 
 const trendingCoins = [
   {
@@ -45,6 +49,17 @@ const trendingCoins = [
   },
 ];
 
+// import React, { Suspense } from "react";
+// import CoinOverview from "@/components/home/CoinOverview";
+// import TrendingCoins from "@/components/home/TrendingCoins";
+// import Categories from "@/components/home/categories";
+// import {
+//   CoinOverviewFallback,
+//   TrendingCoinsFallback,
+//   CategoriesFallback,
+// } from "@/components/home/HomeFallbacks";
+// // ...existing code...
+
 const page = async () => {
   return (
     <main className="main-container">
@@ -57,9 +72,9 @@ const page = async () => {
         </Suspense>
       </section>
       <section className="w-full mt-7 space-y-4">
-        {/* <Suspense fallback={<CategoriesFallback />}>
+        <Suspense fallback={<CategoriesFallback />}>
           <Categories />
-        </Suspense> */}
+        </Suspense>
       </section>
     </main>
   );
