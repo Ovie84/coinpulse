@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import React, { Suspense } from "react";
 import CoinOverview from "@/components/home/CoinOverview";
 import TrendingCoins from "@/components/home/TrendingCoins";

@@ -13,7 +13,7 @@ const Markets = async ({ searchParams }: NextPageProps) => {
 
   const currentPage = Number(page) || 1;
   const perPage = 10;
-
+    
   let coinsData;
 
   try {

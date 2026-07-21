@@ -29,6 +29,12 @@ jobs:
             cache-from: type=gha
             cache-to: type=gha,mode=max
 
+        - name: Start ngrok tunnel
+          uses: ngrok/ngrok-action@v2
+          with:
+            authtoken: ${{ secrets.NGROK_AUTH_TOKEN }}
+            proto: http
+            addr: 80
 
 
 

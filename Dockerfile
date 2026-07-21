@@ -32,8 +32,12 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLE=1
 
+# Add system group and user profiles for security
+RUN addgroup --system --grid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs    
+
 # Create a system user for safety
-COPY --from=builder /app/builder ./public
+COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
