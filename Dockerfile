@@ -33,7 +33,7 @@ ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLE=1
 
 # Add system group and user profiles for security
-RUN addgroup --system --grid 1001 nodejs
+RUN addgroup -S --g 1001 nodejs
 RUN adduser --system --uid 1001 nextjs    
 
 # Create a system user for safety
