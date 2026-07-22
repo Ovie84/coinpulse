@@ -46,12 +46,18 @@ jobs:
             # sudo apt-get update && sudo apt-get install ngrok
 
             # Download and extract the official Linux stable ngrok agent binary
-            curl -sSL https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip -o ngrok.zip
-            unzip ngrok.zip
-            sudo mv ./ngrok /usr/local/bin/ngrok
-            rm ngrok.zip
+            # curl -sSL https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip -o ngrok.zip
+            # unzip ngrok.zip
+            # sudo mv ./ngrok /usr/local/bin/ngrok
+            # rm ngrok.zip
+
+            # Download and extract the modern Linux stable ngrok v3 agent binary
+            curl -sSL https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz -o ngrok.tgz
+            sudo tar -xvzf ngrok.tgz -C /usr/local/bin
+            rm ngrok.tgz
 
             # Configure your authenticating token
+            # MODERN V3 COMMAND SYNTAX: Save authentication token
             ngrok config add-authtoken $NGROK_AUTH_TOKEN
 
             # Start your tunnel in the background (e.g., exposing port 8080, or your app port)
