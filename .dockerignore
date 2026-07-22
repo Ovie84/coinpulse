@@ -1,0 +1,16 @@
+node_modules
+.next
+out
+.npm
+.git
+.github
+dist
+build
+.env
+.env.*
+.env*.local
+.env.production
+README.md
+# Dockerfile
+*.log
+npm-debug.log*

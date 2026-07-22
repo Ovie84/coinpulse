@@ -5,7 +5,7 @@ import React from "react";
 import { cn, formatCurrency, formatPercentage } from "@/lib/utils";
 import { TrendingDown, TrendingUp } from "lucide-react";
 import DataTable from "@/components/DataTable";
-import { Span } from "next/dist/trace";
+// import { Span } from "next/dist/trace";
 import CoinsPagination from "@/components/CoinsPagination";
 
 const Markets = async ({ searchParams }: NextPageProps) => {
@@ -13,7 +13,7 @@ const Markets = async ({ searchParams }: NextPageProps) => {
 
   const currentPage = Number(page) || 1;
   const perPage = 10;
-
+    
   let coinsData;
 
   try {
@@ -34,14 +34,16 @@ const Markets = async ({ searchParams }: NextPageProps) => {
 
   const columns: DataTableColumn<CoinMarketData>[] = [
     {
-      header: "Ranke",
+      header: "Rank",
       cellClassName: "rank-cell",
-      cell: (coin) => {
-        <>
-          #[coin.market_cap_rank]
-          <Link href={`/coins/${coin.id}`} aria-label="View coin" />
-        </>;
-      },
+      cell: (coin) => (
+        // return (
+          <>
+            #{coin.market_cap_rank}
+            <Link href={`/coins/${coin.id}`} aria-label="View coin" />
+          </>
+        // );
+      ),
     },
     {
       header: "Token",

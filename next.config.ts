@@ -5,6 +5,14 @@ const nextConfig: NextConfig = {
   // typescript: {
   //   ignoreBuildErrors: true,
   // },
+  // typescript: {
+  //   ignoreBuildErrors: true,
+  // },
+  // // Eslint does not work in nextconfig
+  // // eslint: {
+  // //   ignoreDuringBuilds: true,
+  // // },
+
   images: {
     remotePatterns: [
       {
